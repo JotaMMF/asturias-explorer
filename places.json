@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Oviedo Old Town",
+    "type": "city_walk",
+    "location": "Oviedo",
+    "image": "https://picsum.photos/seed/oviedo-old-town/600/400",
+    "description": "Historic city center with medieval streets, the cathedral, and traditional cider bars.",
+    "honesty_note": "Busy at weekends; some areas are very tourist-focused.",
+    "tags": ["history", "architecture", "food"]
+  },
+  {
+    "name": "Gijón Beach (San Lorenzo)",
+    "type": "beach",
+    "location": "Gijón",
+    "image": "https://picsum.photos/seed/gijon-beach/600/400",
+    "description": "Long urban beach with a promenade and strong surf conditions.",
+    "honesty_note": "Can get crowded in summer; water is often cold.",
+    "tags": ["beach", "surf", "walks"]
+  },
+  {
+    "name": "Covadonga Lakes",
+    "type": "nature",
+    "location": "Picos de Europa",
+    "image": "https://picsum.photos/seed/covadonga-lakes/600/400",
+    "description": "Mountain lakes surrounded by dramatic peaks in the Picos de Europa National Park.",
+    "honesty_note": "Access is restricted in peak season; shuttle buses required.",
+    "tags": ["mountains", "hiking", "nature"]
+  },
+  {
+    "name": "Cudillero",
+    "type": "village",
+    "location": "Western Asturias",
+    "image": "https://picsum.photos/seed/cudillero/600/400",
+    "description": "Colorful fishing village built into a steep hillside overlooking the sea.",
+    "honesty_note": "Very small; parking can be difficult.",
+    "tags": ["photography", "sea", "village"]
+  },
+  {
+    "name": "Picos de Europa National Park",
+    "type": "park",
+    "location": "Eastern Asturias",
+    "image": "https://picsum.photos/seed/picos-europa/600/400",
+    "description": "Large mountain national park with hiking routes, wildlife, and dramatic scenery.",
+    "honesty_note": "Weather changes quickly; proper gear is essential.",
+    "tags": ["hiking", "nature", "wildlife"]
+  },
+  {
+    "name": "Avilés Old Town",
+    "type": "city_walk",
+    "location": "Avilés",
+    "image": "https://picsum.photos/seed/aviles-old-town/600/400",
+    "description": "Well-preserved medieval center with arcaded streets and cultural venues.",
+    "honesty_note": "Industrial surroundings nearby can surprise visitors.",
+    "tags": ["history", "culture"]
+  },
+  {
+    "name": "Taramundi",
+    "type": "village",
+    "location": "Western Asturias",
+    "image": "https://picsum.photos/seed/taramundi/600/400",
+    "description": "Rural village known for traditional knife-making and green landscapes.",
+    "honesty_note": "Remote; limited public transport.",
+    "tags": ["crafts", "rural", "nature"]
+  }
+]
