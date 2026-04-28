@@ -19,12 +19,19 @@ El proyecto está enfocado en la simplicidad, el rendimiento y la información t
 
 ## 📁 Estructura del proyecto
 /asturias-explorer
+
 ├── index.html # Interfaz principal
+
 ├── style.css # Estilos
+
 ├── script.js # Lógica de la aplicación
+
 ├── places.json # Datos de los lugares
+
 ├── manifest.json # Configuración PWA
+
 ├── sw.js # Service Worker (modo offline)
+
 
 
 ---
