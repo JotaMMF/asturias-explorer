@@ -92,16 +92,6 @@ Esto permite usar la app sin conexión tras la primera carga.
 - JSON como base de datos local  
 - Picsum Photos (imágenes de placeholder)  
 
----
-
-## 🚀 Despliegue en Vercel
-
-El proyecto es completamente estático:
-
-1. Subir a GitHub  
-2. Importar en Vercel  
-3. Desplegar sin configuración adicional  
-4. Listo (sin proceso de build)
 
 ---
 
