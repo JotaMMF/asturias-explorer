@@ -61,3 +61,16 @@ function render(data) {
     grid.appendChild(card);
   });
 }
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById("installBtn").style.display = "inline-block";
+});
+
+document.getElementById("installBtn").addEventListener("click", async () => {
+  deferredPrompt.prompt();
+  deferredPrompt = null;
+});

@@ -1,0 +1,21 @@
+{
+  "name": "Asturias Explorer",
+  "short_name": "Asturias",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#111a2e",
+  "description": "Discover places in Asturias with honest travel info.",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/icon-192/192/192",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://picsum.photos/seed/icon-512/512/512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
