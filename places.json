@@ -1,65 +1,65 @@
 [
   {
-    "name": "Oviedo Old Town",
+    "name": "Casco antiguo de Oviedo",
     "type": "city_walk",
     "location": "Oviedo",
     "image": "https://picsum.photos/seed/oviedo-old-town/600/400",
-    "description": "Historic city center with medieval streets, the cathedral, and traditional cider bars.",
-    "honesty_note": "Busy at weekends; some areas are very tourist-focused.",
-    "tags": ["history", "architecture", "food"]
+    "description": "Centro histórico con calles medievales, la catedral y tradicionales sidrerías.",
+    "honesty_note": "Muy concurrido los fines de semana; algunas zonas muy turísticas.",
+    "tags": ["historia", "arquitectura", "gastronomía"]
   },
   {
-    "name": "Gijón Beach (San Lorenzo)",
+    "name": "Playa de San Lorenzo (Gijón)",
     "type": "beach",
     "location": "Gijón",
     "image": "https://picsum.photos/seed/gijon-beach/600/400",
-    "description": "Long urban beach with a promenade and strong surf conditions.",
-    "honesty_note": "Can get crowded in summer; water is often cold.",
-    "tags": ["beach", "surf", "walks"]
+    "description": "Larga playa urbana con paseo marítimo y buenas condiciones de surf.",
+    "honesty_note": "Puede estar muy llena en verano; el agua suele ser fría.",
+    "tags": ["playa", "surf", "paseos"]
   },
   {
-    "name": "Covadonga Lakes",
+    "name": "Lagos de Covadonga",
     "type": "nature",
     "location": "Picos de Europa",
     "image": "https://picsum.photos/seed/covadonga-lakes/600/400",
-    "description": "Mountain lakes surrounded by dramatic peaks in the Picos de Europa National Park.",
-    "honesty_note": "Access is restricted in peak season; shuttle buses required.",
-    "tags": ["mountains", "hiking", "nature"]
+    "description": "Lagos de montaña rodeados de picos impresionantes en el Parque Nacional de los Picos de Europa.",
+    "honesty_note": "El acceso está restringido en temporada alta; es necesario usar autobuses lanzadera.",
+    "tags": ["montaña", "senderismo", "naturaleza"]
   },
   {
     "name": "Cudillero",
     "type": "village",
-    "location": "Western Asturias",
+    "location": "Occidente de Asturias",
     "image": "https://picsum.photos/seed/cudillero/600/400",
-    "description": "Colorful fishing village built into a steep hillside overlooking the sea.",
-    "honesty_note": "Very small; parking can be difficult.",
-    "tags": ["photography", "sea", "village"]
+    "description": "Colorido pueblo pesquero construido en una ladera con vistas al mar.",
+    "honesty_note": "Muy pequeño; el aparcamiento puede ser complicado.",
+    "tags": ["fotografía", "mar", "pueblo"]
   },
   {
-    "name": "Picos de Europa National Park",
+    "name": "Parque Nacional de los Picos de Europa",
     "type": "park",
-    "location": "Eastern Asturias",
+    "location": "Asturias oriental",
     "image": "https://picsum.photos/seed/picos-europa/600/400",
-    "description": "Large mountain national park with hiking routes, wildlife, and dramatic scenery.",
-    "honesty_note": "Weather changes quickly; proper gear is essential.",
-    "tags": ["hiking", "nature", "wildlife"]
+    "description": "Gran parque nacional de montaña con rutas de senderismo, fauna salvaje y paisajes espectaculares.",
+    "honesty_note": "El clima cambia rápidamente; es imprescindible llevar equipo adecuado.",
+    "tags": ["senderismo", "naturaleza", "fauna"]
   },
   {
-    "name": "Avilés Old Town",
+    "name": "Casco antiguo de Avilés",
     "type": "city_walk",
     "location": "Avilés",
     "image": "https://picsum.photos/seed/aviles-old-town/600/400",
-    "description": "Well-preserved medieval center with arcaded streets and cultural venues.",
-    "honesty_note": "Industrial surroundings nearby can surprise visitors.",
-    "tags": ["history", "culture"]
+    "description": "Centro medieval bien conservado con calles porticadas y espacios culturales.",
+    "honesty_note": "El entorno industrial cercano puede sorprender a algunos visitantes.",
+    "tags": ["historia", "cultura"]
   },
   {
     "name": "Taramundi",
     "type": "village",
-    "location": "Western Asturias",
+    "location": "Occidente de Asturias",
     "image": "https://picsum.photos/seed/taramundi/600/400",
-    "description": "Rural village known for traditional knife-making and green landscapes.",
-    "honesty_note": "Remote; limited public transport.",
-    "tags": ["crafts", "rural", "nature"]
+    "description": "Pueblo rural conocido por su tradición en la fabricación de navajas y paisajes verdes.",
+    "honesty_note": "Zona remota; transporte público limitado.",
+    "tags": ["artesanía", "rural", "naturaleza"]
   }
 ]

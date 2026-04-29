@@ -1,76 +1,141 @@
-let places = [];
+/**
+ * ============================
+ * ESTADO GLOBAL DE LA APLICACIÓN
+ * ============================
+ * Almacena todos los lugares cargados desde el archivo JSON.
+ */
+let lugares = [];
 
-const grid = document.getElementById("grid");
-const search = document.getElementById("search");
-const filter = document.getElementById("filter");
+/**
+ * Referencias a elementos del DOM
+ */
+const rejilla = document.getElementById("grid");        // Contenedor de tarjetas
+const buscador = document.getElementById("search");     // Input de búsqueda
+const filtro = document.getElementById("filter");       // Selector de tipo de lugar
 
-// Load JSON data
+/**
+ * ============================
+ * CARGA DE DATOS (JSON)
+ * ============================
+ * Se obtienen los lugares desde el archivo places.json
+ */
 fetch("places.json")
-  .then(res => res.json())
-  .then(data => {
-    places = data;
-    render(data);
+  .then(respuesta => respuesta.json())
+  .then(datos => {
+    lugares = datos;     // Guardamos los datos en memoria
+    renderizar(datos);   // Mostramos todos los lugares inicialmente
   });
 
-// Filters
-search.addEventListener("input", applyFilters);
-filter.addEventListener("change", applyFilters);
+/**
+ * ============================
+ * EVENTOS DE FILTRADO
+ * ============================
+ * Escucha cambios en el buscador y el filtro
+ * para actualizar la vista automáticamente.
+ */
+buscador.addEventListener("input", aplicarFiltros);
+filtro.addEventListener("change", aplicarFiltros);
 
-function applyFilters() {
-  const term = search.value.toLowerCase();
-  const type = filter.value;
+/**
+ * ============================
+ * APLICAR FILTROS
+ * ============================
+ * Filtra los lugares según:
+ * - Texto buscado (nombre o ubicación)
+ * - Tipo seleccionado (naturaleza, playa, etc.)
+ */
+function aplicarFiltros() {
+  const termino = buscador.value.toLowerCase(); // texto introducido
+  const tipo = filtro.value;                    // tipo seleccionado
 
-  const filtered = places.filter(p => {
-    const matchesText =
-      p.name.toLowerCase().includes(term) ||
-      p.location.toLowerCase().includes(term);
+  const filtrados = lugares.filter(lugar => {
+    // Coincidencia de texto (nombre o ubicación)
+    const coincideTexto =
+      lugar.name.toLowerCase().includes(termino) ||
+      lugar.location.toLowerCase().includes(termino);
 
-    const matchesType = type === "all" || p.type === type;
+    // Coincidencia de tipo o "todos"
+    const coincideTipo = tipo === "all" || lugar.type === tipo;
 
-    return matchesText && matchesType;
+    return coincideTexto && coincideTipo;
   });
 
-  render(filtered);
+  // Renderizamos resultados filtrados
+  renderizar(filtrados);
 }
 
-// Render UI
-function render(data) {
-  grid.innerHTML = "";
+/**
+ * ============================
+ * RENDERIZADO DE INTERFAZ
+ * ============================
+ * Genera las tarjetas dinámicamente y las inserta en la rejilla.
+ */
+function renderizar(datos) {
+  // Limpiamos el contenido anterior
+  rejilla.innerHTML = "";
 
-  data.forEach(place => {
-    const card = document.createElement("div");
-    card.className = "card";
+  // Recorremos todos los lugares
+  datos.forEach(lugar => {
+    // Creamos una tarjeta
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "card";
 
-    card.innerHTML = `
-      <img src="${place.image}" alt="${place.name}">
+    // Insertamos contenido HTML dinámico
+    tarjeta.innerHTML = `
+      <img src="${lugar.image}" alt="${lugar.name}">
       
       <div class="card-content">
-        <h3>${place.name}</h3>
-        <div class="location">📍 ${place.location}</div>
+        <h3>${lugar.name}</h3>
 
-        <p>${place.description}</p>
+        <!-- Ubicación -->
+        <div class="location">📍 ${lugar.location}</div>
 
+        <!-- Descripción -->
+        <p>${lugar.description}</p>
+
+        <!-- Etiquetas -->
         <div class="tags">
-          ${place.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+          ${lugar.tags.map(etiqueta => `<span class="tag">${etiqueta}</span>`).join("")}
         </div>
 
-        <div class="note">⚠️ ${place.honesty_note}</div>
+        <!-- Nota adicional -->
+        <div class="note">⚠️ ${lugar.honesty_note}</div>
       </div>
     `;
 
-    grid.appendChild(card);
+    // Añadimos la tarjeta al grid
+    rejilla.appendChild(tarjeta);
   });
 }
 
-let deferredPrompt;
+/**
+ * ============================
+ * INSTALACIÓN COMO PWA
+ * ============================
+ * Permite instalar la aplicación como una app nativa.
+ */
+let eventoInstalacionDiferida;
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
+/**
+ * Captura el evento antes de que el navegador muestre
+ * el popup automático de instalación.
+ */
+window.addEventListener("beforeinstallprompt", (evento) => {
+  evento.preventDefault(); // Evita el popup automático
+
+  eventoInstalacionDiferida = evento; // Guardamos el evento
+
+  // Mostramos el botón de instalación
   document.getElementById("installBtn").style.display = "inline-block";
 });
 
+/**
+ * Cuando el usuario pulsa el botón de instalación
+ */
 document.getElementById("installBtn").addEventListener("click", async () => {
-  deferredPrompt.prompt();
-  deferredPrompt = null;
+  // Mostramos el diálogo de instalación del navegador
+  eventoInstalacionDiferida.prompt();
+
+  // Limpiamos el evento después de usarlo
+  eventoInstalacionDiferida = null;
 });

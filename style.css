@@ -1,10 +1,17 @@
+/* =========================
+   BASE GLOBAL
+========================= */
 body {
   margin: 0;
-  font-family: system-ui, Arial;
+  font-family: system-ui, Arial, sans-serif;
   background: #0b1220;
   color: #fff;
+  line-height: 1.5;
 }
 
+/* =========================
+   HEADER
+========================= */
 header {
   padding: 20px;
   text-align: center;
@@ -13,49 +20,83 @@ header {
 
 h1 {
   margin: 0 0 10px 0;
+  font-size: clamp(20px, 4vw, 32px);
 }
 
+/* =========================
+   CONTROLES (SEARCH + FILTER)
+========================= */
 .controls {
   display: flex;
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
-input, select {
-  padding: 10px;
+/* Inputs responsivos */
+input,
+select {
+  padding: 10px 12px;
   border-radius: 8px;
   border: none;
   outline: none;
-  width: 220px;
+
+  /* clave para responsive */
+  width: min(260px, 90vw);
+
+  font-size: 14px;
 }
 
+/* Mejora UX en focus */
+input:focus,
+select:focus {
+  outline: 2px solid #4c7dff;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
 main {
   padding: 20px;
 }
 
+/* GRID RESPONSIVE REAL */
 #grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  /* más flexible que antes */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
   gap: 15px;
+
+  /* evita que el contenido se pegue en pantallas grandes */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* CARD */
+/* =========================
+   CARD COMPONENT
+========================= */
 .card {
   background: #152238;
   border-radius: 14px;
   overflow: hidden;
-  transition: 0.2s;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* Hover solo en dispositivos con mouse */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .card img {
   width: 100%;
-  height: 170px;
+  height: clamp(140px, 18vw, 190px);
   object-fit: cover;
 }
 
@@ -65,8 +106,12 @@ main {
 
 .card h3 {
   margin: 0 0 5px;
+  font-size: 18px;
 }
 
+/* =========================
+   META INFO
+========================= */
 .location {
   font-size: 13px;
   opacity: 0.8;
@@ -74,19 +119,63 @@ main {
 
 .tags {
   margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .tag {
   display: inline-block;
   background: #2b3b5a;
-  padding: 3px 6px;
-  margin: 2px;
+  padding: 4px 8px;
   border-radius: 6px;
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .note {
   margin-top: 10px;
   font-size: 12px;
   color: #ffcc66;
+}
+
+/* =========================
+   RESPONSIVE MOBILE (EXTRA)
+========================= */
+@media (max-width: 600px) {
+  header {
+    padding: 15px;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  #grid {
+    gap: 12px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input,
+  select {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+}
+
+/* =========================
+   PANTALLAS GRANDES
+========================= */
+@media (min-width: 1200px) {
+  #grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
 }
