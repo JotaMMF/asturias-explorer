@@ -65,16 +65,25 @@ function aplicarFiltros() {
   const tipoSeleccionado = filtro.value;
 
   const filtrados = lugares.filter(lugar => {
-    // Coincidencia por texto
+
+    // 🔎 búsqueda por texto
     const coincideTexto =
       lugar.name.toLowerCase().includes(termino) ||
       lugar.location.toLowerCase().includes(termino);
 
-    // Coincidencia por tipo
+    // 🏷️ búsqueda por tags (NUEVO)
+    const coincideTags = lugar.tags.some(tag =>
+      tag.toLowerCase().includes(termino)
+    );
+
+    // combinación de búsqueda
+    const coincideBusqueda = coincideTexto || coincideTags;
+
+    // filtro por tipo
     const coincideTipo =
       tipoSeleccionado === "all" || lugar.type === tipoSeleccionado;
 
-    return coincideTexto && coincideTipo;
+    return coincideBusqueda && coincideTipo;
   });
 
   renderizar(filtrados);

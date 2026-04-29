@@ -3,10 +3,13 @@
 ========================= */
 body {
   margin: 0;
-  font-family: system-ui, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, Arial, sans-serif;
   background: #0b1220;
   color: #fff;
   line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================
@@ -98,6 +101,12 @@ main {
   width: 100%;
   height: clamp(140px, 18vw, 190px);
   object-fit: cover;
+  
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .card-content {

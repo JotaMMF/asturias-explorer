@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <!-- Configuración básica del documento -->
+  <!-- =========================================
+       METADATOS BÁSICOS
+  ========================================== -->
   <meta charset="UTF-8">
-  <!-- Hace que la web sea responsive en móviles -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Título de la página -->
   <title>Explorador de Asturias</title>
 
-  <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" href="style.css">
+  <!-- =========================================
+       SEO BÁSICO
+  ========================================== -->
+  <meta name="description" content="Descubre lugares de Asturias con información honesta: playas, pueblos, montañas y rutas de naturaleza.">
+  <meta name="keywords" content="Asturias, turismo, rutas, naturaleza, playas, Picos de Europa, Gijón, Oviedo">
+  <meta name="author" content="Asturias Explorer">
 
-  <!-- Archivo de configuración para convertir la web en PWA (Progressive Web App) -->
+  <!-- =========================================
+       OPEN GRAPH (REDES SOCIALES)
+  ========================================== -->
+  <meta property="og:title" content="Asturias Explorer">
+  <meta property="og:description" content="Explora Asturias con una guía honesta de lugares, playas y naturaleza.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://picsum.photos/seed/asturias/1200/630">
+  <meta property="og:url" content="https://tuusuario.github.io/tu-repo/">
+
+  <!-- =========================================
+       TWITTER CARD
+  ========================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- =========================================
+       GOOGLE FONTS
+  ========================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- =========================================
+       PWA CONFIG
+  ========================================== -->
   <link rel="manifest" href="manifest.json">
-
-  <!-- Color del tema para navegadores móviles -->
   <meta name="theme-color" content="#111a2e">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Cabecera principal -->
+  <!-- =========================================
+       CABECERA PRINCIPAL
+  ========================================== -->
   <header>
     <h1>🌄 Explorador de Asturias</h1>
 
-    <!-- Controles de la aplicación -->
+    <p>Guía honesta de lugares turísticos, naturaleza y pueblos</p>
+
+    <!-- CONTROLES -->
     <div class="controls">
-      
-      <!-- Botón para instalar la app (PWA). Se muestra dinámicamente con JS -->
-      <button id="installBtn" style="display:none;">Instalar App</button>
-      
-      <!-- Campo de búsqueda -->
-      <input 
-        id="search" 
-        placeholder="Buscar lugares o pueblos..." 
+
+      <!-- Botón instalación PWA -->
+      <button id="installBtn" style="display:none;">
+        Instalar App
+      </button>
+
+      <!-- Buscador -->
+      <input
+        id="search"
+        type="search"
+        placeholder="Buscar lugares o pueblos..."
+        aria-label="Buscar lugares de Asturias"
       />
-      
-      <!-- Filtro por categorías -->
-      <select id="filter">
+
+      <!-- Filtro -->
+      <select id="filter" aria-label="Filtrar por tipo de lugar">
         <option value="all">Todos</option>
         <option value="nature">Naturaleza</option>
         <option value="beach">Playas</option>
@@ -46,22 +83,32 @@
         <option value="village">Pueblos</option>
         <option value="park">Parques</option>
       </select>
+
     </div>
   </header>
 
-  <!-- Contenido principal -->
+  <!-- =========================================
+       CONTENIDO PRINCIPAL
+  ========================================== -->
   <main>
-    <!-- Contenedor donde se renderizarán los lugares dinámicamente -->
-    <div id="grid"></div>
+
+    <section aria-label="Listado de lugares de Asturias">
+      <div id="grid"></div>
+    </section>
+
   </main>
 
-  <!-- Script principal de la aplicación -->
+  <!-- =========================================
+       SCRIPTS
+  ========================================== -->
   <script src="script.js"></script>
 
   <script>
     /**
-     * Registro del Service Worker
-     * Permite funcionalidades offline y mejora el rendimiento (PWA)
+     * =========================================
+     * SERVICE WORKER (PWA)
+     * =========================================
+     * Permite funcionamiento offline y caché.
      */
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js')

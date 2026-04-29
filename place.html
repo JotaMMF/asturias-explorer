@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Detalle del lugar</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html">← Volver</a>
+    <h1 id="titulo">Lugar</h1>
+  </header>
+
+  <main>
+    <article class="place-detail">
+
+      <img id="imagen" alt="" loading="lazy">
+
+      <h2 id="nombre"></h2>
+
+      <p id="ubicacion"></p>
+
+      <p id="descripcion"></p>
+
+      <div id="tags"></div>
+
+      <p id="nota"></p>
+
+    </article>
+  </main>
+
+  <script>
+    /**
+     * =========================================
+     * CARGA DE DETALLE POR ID
+     * =========================================
+     */
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    fetch("places.json")
+      .then(res => res.json())
+      .then(data => {
+        const lugar = data[id];
+
+        if (!lugar) {
+          document.body.innerHTML = "<p>Lugar no encontrado</p>";
+          return;
+        }
+
+        document.title = lugar.name;
+
+        document.getElementById("titulo").textContent = lugar.name;
+        document.getElementById("nombre").textContent = lugar.name;
+        document.getElementById("ubicacion").textContent = "📍 " + lugar.location;
+        document.getElementById("descripcion").textContent = lugar.description;
+        document.getElementById("nota").textContent = "⚠️ " + lugar.honesty_note;
+
+        const img = document.getElementById("imagen");
+        img.src = lugar.image;
+        img.alt = `Imagen de ${lugar.name}`;
+
+        const tags = document.getElementById("tags");
+        tags.innerHTML = lugar.tags
+          .map(t => `<span class="tag">${t}</span>`)
+          .join("");
+      });
+  </script>
+
+</body>
+</html>
